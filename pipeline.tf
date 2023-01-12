@@ -69,6 +69,10 @@ resource "aws_codepipeline" "codepipeline" {
       }
     }
   }
+
+  depends_on = [
+    aws_codebuild_project.codebuild-lambda
+  ]
 }
 
 resource "aws_s3_bucket" "codepipeline_bucket" {
