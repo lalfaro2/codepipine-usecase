@@ -1,5 +1,7 @@
 #!/bin/bash
 
+terraform init
+
 terraform "$1" --auto-approve \
 -var org="$2" \
 -var env="$3" \
