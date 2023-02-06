@@ -7,3 +7,8 @@ terraform "$1" --auto-approve \
 -var env="$3" \
 -var github-repo="$4" \
 -var codestar-connection-arn="$5"
+
+if [ "$1" = "destroy" ]; then
+    aws iam delete-role --role-name "$6"
+    aws lambda delete-function --function-name "$7"
+fi
